@@ -323,6 +323,19 @@
             document.getElementById("fact").textContent = Facts[factNumber];
         }
 
+        //Navigation Bar
+        let menuOpen = false;
+
+        function toggleMenu() {
+            const menuContainer = document.getElementById("menuContainer");
+            menuOpen = !menuOpen;
+            menuContainer.style.display = menuOpen ? "block" : "none";
+        }
+
+        function goToExpPage() {
+            window.location.href = "test_time_page.html";
+        }
+
     </script>
     <!-- <header class="floating-header">
   <div class = "h">
@@ -403,7 +416,7 @@
         <div class="w-2/3 max-w-lg">
             <div class="my-8">
                 <div class="cover">
-                    <h1 class="h1">FUTURE OF IOT</h1>
+                    <h1 class="h1">FUTURE OF XR</h1>
                     <p class="f">The future of XR holds vast potential, revolutionizing entertainment with more
                         immersive VR experiences and transforming education through interactive learning. In healthcare,
                         XR will continue to improve patient outcomes with surgical simulations. The convergence of XR
