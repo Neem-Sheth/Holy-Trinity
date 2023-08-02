@@ -1,0 +1,428 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST YOURSELF-HTT</title>
+  <link rel="icon" href="logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Handjet">
+  <script src="https://cdn.jsdelivr.net/particles.js/1.0.3/particles.min.js"></script>
+</head>
+
+<style>
+  body {
+    font-family: 'Handjet', serif;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    border: 11px solid purple;
+    /* Add border decoration */
+    box-sizing: border-box;
+    animation: borderAnimation 4s infinite alternate;
+    /* Add animation to border */
+  }
+
+
+  @keyframes borderAnimation {
+    from {
+      border-color: midnightblue;
+    }
+
+    to {
+      border-color: palevioletred;
+    }
+  }
+
+  .particle-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    font-weight: lighter;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 3px 3px 25px rgba(110, 50, 150, 0.9);
+    animation: textAnimation 5s ease-in-out;
+    z-index: 99999;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes textAnimation {
+    0% {
+      opacity: 0.05;
+      text-shadow: 3px 3px 25px rgba(100, 10, 112, 0.9);
+    }
+
+    10% {
+      opacity: 0.1;
+      text-shadow: 3px 3px 25px rgba(25, 25, 112, 0.9);
+    }
+
+    20% {
+      opacity: 0.2;
+      text-shadow: 3px 3px 25px rgba(25, 25, 112, 0.9);
+    }
+
+    30% {
+      opacity: 0.3;
+      text-shadow: 3px 3px 25px rgba(75, 50, 110, 0.9);
+    }
+
+    40% {
+      opacity: 0.4;
+      text-shadow: 3px 3px 25px rgba(100, 10, 112, 0.9);
+    }
+
+    50% {
+      opacity: 0.5;
+      text-shadow: 3px 3px 25px rgba(110, 50, 150, 0.9);
+    }
+
+    60% {
+      opacity: 0.6;
+      text-shadow: 3px 3px 25px rgba(110, 50, 150, 0.9);
+    }
+
+    70% {
+      opacity: 0.7;
+      text-shadow: 3px 3px 25px rgba(50, 50, 150, 0.9);
+    }
+
+    80% {
+      opacity: 0.8;
+      text-shadow: 3px 3px 25px rgba(50, 50, 150, 0.9);
+    }
+
+    90% {
+      opacity: 0.9;
+      text-shadow: 3px 3px 25px rgba(128, 0, 128, 0.9);
+    }
+
+    100% {
+      opacity: 1;
+      text-shadow: 3px 3px 25px rgba(128, 0, 128, 0.9);
+    }
+  }
+
+  .header h1 {
+    text-align: center;
+  }
+
+  .content h2 {
+    color: #fff;
+  }
+
+  #hover-text {
+    cursor: pointer;
+  }
+
+  .quiz-container {
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed;
+    top: 20px;
+    right: -1600px;
+    /* Initially hide the quiz off the screen */
+    max-width: 600px;
+    padding: 15px;
+    background-color: #000;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    transition: right 0.5s ease;
+    /* Smooth transition for showing/hiding the quiz */
+  }
+
+  .quiz-container.show-quiz {
+    right: 20px;
+    /* Show the quiz on the right side when the show-quiz class is added */
+  }
+
+  .question {
+    margin: 20px 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-family: 'Handjet', serif;
+    font-size: 20px;
+    background-color: #191970;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #000080;
+  }
+
+  .results {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: #fff;
+  }
+
+  .results p {
+    color: #191970;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: midnightblue;
+    border-radius: 6px;
+  }
+</style>
+
+<body>
+  <!-- <div id="tsparticles"></div>-->
+  <div id="particles-js"></div>
+
+  <div class="particle-text-container">
+    <h1>
+      <div id="hover-text" onmouseover="checkOddOccurrences()">TEST</div>TIME
+    </h1>
+  </div>
+  <div class="quiz-container" id="quiz-container">
+    <h1>Holy Question Trinity</h1>
+    <div class="question">
+      <p>1. What is the name of the quantum algorithm that can efficiently factor large integers and break RSA
+        encryption?</p>
+      <label><input type="radio" name="q1" value="a"> a) Grover's Algorithm</label>
+      <label id="t1"><input type="radio" name="q1" value="b"> b) Shor's Algorithm</label>
+      <label><input type="radio" name="q1" value="c"> c) Quantum Fourier Transform</label>
+    </div>
+    <div class="question">
+      <p>2. What is the main challenge faced by autonomous vehicles when operating in adverse weather conditions like
+        heavy rain or snow?</p>
+      <label><input type="radio" name="q2" value="a"> a) Inadequate sensor resolution</label>
+      <label><input type="radio" name="q2" value="b"> b) Limited computing power</label>
+      <label id="t2"><input type="radio" name="q2" value="c"> c) Impaired sensor perception</label>
+    </div>
+    <div class="question">
+      <p>3. Which wireless communication protocol is specifically designed to provide low-power and low-data-rate
+        communication for IoT devices?</p>
+      <label id="t3"><input type="radio" name="q3" value="a"> a) Zigbee (IEEE 802.15.4)</label>
+      <label><input type="radio" name="q3" value="b"> b) LTE Advanced</label>
+      <label><input type="radio" name="q3" value="c"> c) Wi-Fi (802.11ac)</label>
+    </div>
+    <button id="but" onclick="showResults()">Submit</button>
+    <div class="results" id="results"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/1.34.0/tsparticles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 100,
+          density: {
+            enable: true,
+            value_area: 875
+          }
+        },
+        color: {
+          value: "#FFFFFF"
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 1,
+            color: "#191970"
+          },
+          polygon: {
+            nb_sides: 4
+          },
+        },
+        opacity: {
+          value: 0.9,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 0.3,
+            opacity_min: 0.3,
+            sync: false
+          }
+        },
+        size: {
+          value: 5,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 2,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable_auto: true,
+          distance: 100,
+          color: "#800080",
+          opacity: 0.8,
+          width: 2,
+          condensed_mode: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 600
+          }
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 700,
+            line_linked: {
+              opacity: 1
+            }
+          },
+          bubble: {
+            distance: 800,
+            size: 80,
+            duration: 2,
+            opacity: 0.9,
+            speed: 3
+          },
+          repulse: {
+            distance: 100
+          },
+          push: {
+            particles_nb: 4
+          },
+          remove: {
+            particles_nb: 2
+          }
+        }
+      },
+      retina_detect: true
+    });
+    const button = document.getElementById("but")
+
+    let occurrences = 0;
+    const quizContainer = document.getElementById("quiz-container");
+    function checkOddOccurrences() {
+      occurrences++;
+      if (occurrences % 2 !== 0) {
+        quizContainer.classList.add("show-quiz");
+      }
+      else {
+        quizContainer.classList.remove("show-quiz");
+      }
+    }
+
+    function showResults() {
+      button.setAttribute('href', 'home_page.html');
+      button.textContent = "Home"
+
+      const questions = [
+        {
+          question: "What is the name of the quantum algorithm that can efficiently factor large integers and break RSA encryption?",
+          answer: "b",
+        },
+        {
+          question: "What is the main challenge faced by autonomous vehicles when operating in adverse weather conditions like heavy rain or snow?",
+          answer: "c",
+        },
+        {
+          question: "Which wireless communication protocol is specifically designed to provide low-power and low-data-rate communication for IoT devices?",
+          answer: "a",
+        },
+      ];
+
+      let score = 0;
+      let userAnswers = [];
+
+      for (let i = 0; i < questions.length; i++) {
+        const selectedOption = document.querySelector(
+          `input[name=q${i + 1}]:checked`
+        );
+        if (selectedOption) {
+          userAnswers.push(selectedOption.value);
+        }
+      }
+
+      // Calculate the score
+      for (let i = 0; i < questions.length; i++) {
+        if (userAnswers[i] === questions[i].answer) {
+          score++;
+        }
+      }
+
+      // Display the results
+      const resultsContainer = document.getElementById("results");
+      resultsContainer.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      const t1 = document.getElementById("t1");
+      const t2 = document.getElementById("t2");
+      const t3 = document.getElementById("t3");
+      t1.style.color = "green";
+      t2.style.color = "green";
+      t3.style.color = "green";
+      function myFunction() {
+        window.location.href = 'home_page.html';
+      }
+      const delayInMilliseconds = 4500;
+      setTimeout(myFunction, delayInMilliseconds);
+
+    }
+  </script>
+
+</body>
+
+</html>

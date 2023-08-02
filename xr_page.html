@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>XR-HTT</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+    <link rel="icon" href="logo.png" type="image/x-icon" />
+    <style>
+        body {
+            background-image: url('xr.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Mulish', sans-serif;
+            background-attachment: fixed;
+        }
+
+        .cover {
+            background-color: rgba(0, 0, 139, 0.75);
+            height: fit-content;
+            width: 800px;
+            margin-top: 200px;
+            margin-left: 500px;
+            padding: 50px;
+        }
+
+        .floating-header {
+            position: fixed;
+            height: 50px;
+            vertical-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, black, purple);
+            color: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .h {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        #fact {
+            opacity: 1;
+            color: white;
+        }
+
+        .f {
+            font-weight: bold;
+            opacity: 1;
+            color: white;
+            padding: 5px;
+
+        }
+
+        #show-fact {
+            opacity: 1;
+            color: white;
+            justify-items: center;
+            border: white 3px;
+            z-index: 99999;
+            font-weight: bold;
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .heading1 {
+            text-align: center;
+            margin-top: 160px;
+        }
+
+        .heading2 {
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        .h1 {
+            color: white;
+            font-weight: bolder;
+            padding-bottom: 7px;
+        }
+
+        .moving-text {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 70px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        .moving-text1 {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 135px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        .moving-text2 {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 200px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: black;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: purple;
+            border-radius: 6px;
+        }
+
+        @keyframes dance {
+            0% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-10px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        a.c {
+            color: lightpink;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        a.c1 {
+            color: lightpink;
+            font-weight: bold;
+        }
+
+        a:hover {
+            animation: dance 1s infinite;
+        }
+
+        .unique-header {
+            background: linear-gradient(to right, lightpink, purple, midnightblue);
+            opacity: 80%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin-top: 0px;
+        }
+
+        .header-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .header-button {
+            margin-left: auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header-button:hover {
+            background-color: midnightblue;
+            color: #6f42c1;
+        }
+
+        .menu-container {
+            display: none;
+            position: fixed;
+            opacity: 0.8;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, lightpink, purple, midnightblue);
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .menu-container ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .menu-container ul li {
+            font-size: 28px;
+            color: white;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-container ul li:last-child {
+            border-bottom: none;
+        }
+
+
+        .icon-container {
+            position: relative;
+            float: left;
+            height: 60px;
+            margin-left: 50px;
+        }
+
+        .icon-container .hidden-image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .icon-container:hover .hidden-image {
+            display: block;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            z-index: 1;
+        }
+
+        .hidden-image {
+            position: absolute;
+            display: none;
+        }
+
+        .hidden-image img {
+            height: 60px;
+            width: 60px;
+            border: 2px solid #333;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <script>const floatingHeader = document.querySelector('.floating-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                floatingHeader.style.display = 'block';
+            } else {
+                floatingHeader.style.display = 'none';
+            }
+        }); 
+
+
+        var Facts = ["Blurring the Lines: XR technology blurs the lines between the virtual world and the real world. With augmented reality, digital objects are overlaid on the real environment, while virtual reality completely immerses users in a simulated world. Mixed reality combines elements of both, allowing digital objects to interact with the real world in real-time.",
+
+            "Gaming and Entertainment: XR technology has revolutionized the gaming and entertainment industry. Virtual reality games and experiences offer a heightened sense of presence and engagement, while augmented reality games like Pokemon GO have brought gaming into the real world, encouraging players to explore their surroundings.",
+
+            "Training and Education: XR is transforming the way we learn and train. From flight simulations for pilots to medical training for surgeons, XR enables immersive and realistic experiences that can help learners gain practical skills in a safe and controlled environment.",
+
+            "Virtual Tourism: XR allows people to virtually explore distant places and historical sites. Virtual tourism experiences enable users to visit iconic landmarks, ancient ruins, and natural wonders from the comfort of their homes, making travel accessible to a broader audience.",
+
+            "Social Interaction: XR technology is reshaping social interaction. Virtual reality social platforms enable users to meet and interact with others from all around the world in virtual spaces, creating new and unique ways to connect and collaborate."]
+        function factg() {
+            var factNumber;
+            factNumber = Math.floor(Math.random() * 5);
+            document.getElementById("fact").textContent = Facts[factNumber];
+        }
+
+    </script>
+    <!-- <header class="floating-header">
+  <div class = "h">
+  <h1>HOME</h1><br>
+  <h1>SMART HOME DEVICES</h1><br>
+  <h1>FUTURE</h1>
+  </div>
+</header>-->
+    <!--Header start-->
+    <header class="unique-header">
+        <div class="header-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="icon-container"> 
+            <div class="icon">
+                <img src="logo.png" alt="Icon">
+            </div>
+            <div class="hidden-image" id="hiddenImage">
+                <img src="group.jpg" alt="Hidden Image">
+            </div>
+        </div>
+        <span class="text-2xl flex items-center mx-3 font-bold text-white">HOLY TRINITY</span>
+        <button class="header-button" onclick="goToExpPage()">TEST TIME</button>
+    </header>
+    <div class="menu-container" id="menuContainer">
+        <ul>
+            <li><a href="home_page.html"><b>Home</b></a></li>
+            <li><a href="about_pa   ge.html"><b>About</b></a></li>
+            <li><a href="xr_page.html">Extended Reality</a></li>
+            <li><a href="qc_page.html">Quantum Computing</a></li>
+            <li><a href="iot_page.html">Internet Of Things</a></li>
+            <li><a href="av_page.html">Autonomous Vehicles</a></li>
+            <li><a href="ai_page.html">Artificial Intelligence</a></li>
+
+        </ul>
+    </div>
+    <!--Header end-->
+    <div class="heading">
+        <h1 class="moving-text">EXTENDED</h1>
+    </div>
+    <div class="heading1">
+        <h1 class="moving-text1">REALITY</h1>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+
+                    <p id="fact">As XR technology continues to advance, we can expect even more exciting and innovative
+                        applications in various industries, enriching our lives and changing the way we perceive and
+                        interact with the world around us.</p>
+                    <br>
+                    <button id="show-fact"
+                        style="border: 2px solid white; background-color: transparent; color: white; padding: 10px 20px; border-radius: 5px;"
+                        onclick="factg()"> FuXRn Fact!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+                    <h1 class="h1">XR IN HEALTHCARE</h1>
+                    <p class="f">Extended Reality (XR) is revolutionizing healthcare by enhancing surgical training and
+                        improving patient care. Surgeons use realistic virtual environments to practice complex
+                        procedures, reducing errors and improving outcomes. XR also aids in pain management by immersing
+                        patients in calming virtual experiences during medical procedures, reducing anxiety and
+                        discomfort.</p>
+                    <p class="f">XR is transforming healthcare through telemedicine, enabling immersive virtual
+                        consultations for improved patient access. Medical education benefits from XR's interactive
+                        anatomy lessons, allowing students to explore virtual 3D models of the human body, enhancing
+                        understanding and retention. The future holds even more potential for XR to positively impact
+                        patient care and medical training.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+                    <h1 class="h1">FUTURE OF IOT</h1>
+                    <p class="f">The future of XR holds vast potential, revolutionizing entertainment with more
+                        immersive VR experiences and transforming education through interactive learning. In healthcare,
+                        XR will continue to improve patient outcomes with surgical simulations. The convergence of XR
+                        with AI and IoT will lead to the creation of a shared virtual space called the "Metaverse,"
+                        redefining how we collaborate and interact.</p>
+                    <p class="f"> XR's future includes enhanced remote collaboration, social interactions in lifelike
+                        virtual spaces, and revolutionary e-commerce experiences. As XR becomes more accessible, it will
+                        integrate into daily life, reshaping entertainment, education, work, and commerce in ways
+                        previously unimaginable.</p>
+                    <p class="f"> Beyond urban wonders, venture into smart agriculture, where fields breathe with a
+                        digital heartbeat, and farmers are guided by data-driven wisdom. Smart homes become magical
+                        sanctuaries, adjusting ambiance and fulfilling wishes with seamless precision. Embrace this
+                        journey where dreams take shape, and life is elevated by the touch of digital artistry, steering
+                        the realm with wisdom and compassion into a future of interconnected wonders.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

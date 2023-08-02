@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AV-HTT</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+    <link rel="icon" href="logo.png" type="image/x-icon" />
+    <style>
+        body {
+            background-image: url('av.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Mulish', sans-serif;
+            background-attachment: fixed;
+        }
+
+        .cover {
+            background-color: rgba(0, 0, 139, 0.75);
+            height: fit-content;
+            width: 800px;
+            margin-top: 200px;
+            margin-left: 500px;
+            padding: 50px;
+        }
+
+        .floating-header {
+            position: fixed;
+            height: 50px;
+            vertical-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, black, purple);
+            color: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .h {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        #fact {
+            opacity: 1;
+            color: white;
+        }
+
+        .f {
+            font-weight: bold;
+            opacity: 1;
+            color: white;
+            padding: 5px;
+
+        }
+
+        #show-fact {
+            opacity: 1;
+            color: white;
+            justify-items: center;
+            border: white 3px;
+            z-index: 99999;
+            font-weight: bold;
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .heading1 {
+            text-align: center;
+            margin-top: 160px;
+        }
+
+        .heading2 {
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        .h1 {
+            color: white;
+            font-weight: bolder;
+            padding-bottom: 7px;
+        }
+
+        .moving-text {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 70px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        .moving-text1 {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 135px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        .moving-text2 {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 200px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: black;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: purple;
+            border-radius: 6px;
+        }
+
+        @keyframes dance {
+            0% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-10px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        a.c {
+            color: lightpink;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        a.c1 {
+            color: lightpink;
+            font-weight: bold;
+        }
+
+        a:hover {
+            animation: dance 1s infinite;
+        }
+
+        .unique-header {
+            background: linear-gradient(to right, lightpink, purple, midnightblue);
+            opacity: 80%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin-top: 0px;
+        }
+
+        .header-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .header-button {
+            margin-left: auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header-button:hover {
+            background-color: midnightblue;
+            color: #6f42c1;
+        }
+
+        .menu-container {
+            display: none;
+            position: fixed;
+            opacity: 0.8;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, lightpink, purple, midnightblue);
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .menu-container ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .menu-container ul li {
+            font-size: 28px;
+            color: white;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-container ul li:last-child {
+            border-bottom: none;
+        }
+
+
+        .icon-container {
+            position: relative;
+            float: left;
+            height: 60px;
+            margin-left: 50px;
+        }
+
+        .icon-container .hidden-image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .icon-container:hover .hidden-image {
+            display: block;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            z-index: 1;
+        }
+
+        .hidden-image {
+            position: absolute;
+            display: none;
+        }
+
+        .hidden-image img {
+            height: 60px;
+            width: 60px;
+            border: 2px solid #333;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <script>const floatingHeader = document.querySelector('.floating-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                floatingHeader.style.display = 'block';
+            } else {
+                floatingHeader.style.display = 'none';
+            }
+        });
+
+        var Facts = ["Historical Roots: The concept of self-driving vehicles dates back to the 1920s when Francis Houdina, an American engineer, demonstrated a radio-controlled driverless car. However, it was not until the 1980s that the modern development of AV technology began.",
+
+            "Levels of Autonomy: The Society of Automotive Engineers (SAE) has defined six levels of driving automation, ranging from Level 0 (no automation) to Level 5 (full automation). Level 5 AVs can operate without human intervention in all conditions and environments.",
+
+            "Safety Advancements: One of the primary goals of AV technology is to improve road safety. AVs have the potential to reduce accidents caused by human errors, which account for the majority of road crashes.",
+
+            "Testing and Deployment: Companies like Waymo, Tesla, and Uber have been conducting extensive AV testing on public roads. Some cities around the world have also begun deploying AVs for public transportation and delivery services.",
+
+            "Ethical Dilemmas: AVs raise ethical questions, such as the 'trolley problem,'' which involves deciding how AVs should respond in situations where an accident is unavoidable, potentially leading to injury or loss of life."]
+
+        function factg() {
+            var factNumber;
+            factNumber = Math.floor(Math.random() * 5);
+            document.getElementById("fact").textContent = Facts[factNumber];
+        }
+        //Navigation Bar
+        let menuOpen = false;
+
+        function toggleMenu() {
+            const menuContainer = document.getElementById("menuContainer");
+            menuOpen = !menuOpen;
+            menuContainer.style.display = menuOpen ? "block" : "none";
+        }
+
+        function goToExpPage() {
+            window.location.href = "test_time_page.html";
+        }
+    </script>
+    <!-- <header class="floating-header">
+  <div class = "h">
+  <h1>HOME</h1><br>
+  <h1>SMART HOME DEVICES</h1><br>
+  <h1>FUTURE</h1>
+  </div>
+</header>-->
+    <!--Header start-->
+    <header class="unique-header">
+        <div class="header-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="icon-container">
+            <div class="icon">
+                <img src="logo.png" alt="Icon">
+            </div>
+            <div class="hidden-image" id="hiddenImage">
+                <img src="group.jpg" alt="Hidden Image">
+            </div>
+        </div>
+        <span class="text-2xl flex items-center mx-3 font-bold text-white">HOLY TRINITY</span>
+        <button class="header-button" onclick="goToExpPage()">TEST TIME</button>
+    </header>
+    <div class="menu-container" id="menuContainer">
+        <ul>
+            <li><a href="home_page.html"><b>Home</b></a></li>
+            <li><a href="about_page.html"><b>About</b></a></li>
+            <li><a href="xr_page.html">Extended Reality</a></li>
+            <li><a href="qc_page.html">Quantum Computing</a></li>
+            <li><a href="iot_page.html">Internet Of Things</a></li>
+            <li><a href="av_page.html">Autonomous Vehicles</a></li>
+            <li><a href="ai_page.html">Artificial Intelligence</a></li>
+
+        </ul>
+    </div>
+    <!--Header end-->
+    <div class="heading">
+        <h1 class="moving-text">AUTONOMOUS</h1>
+    </div>
+    <div class="heading1">
+        <h1 class="moving-text1">VEHICLES</h1>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+
+                    <p id="fact">"Driving the Future: Where Roads Meet Robots and Autonomy Unleashes Possibility."</p>
+                    <br>
+                    <button id="show-fact"
+                        style="border: 2px solid white; background-color: transparent; color: white; padding: 10px 20px; border-radius: 5px;"
+                        onclick="factg()">AV
+                        Fun Fact!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+                    <h1 class="h1">SENSING TECH & AVs</h1>
+                    <p class="f">Prepare for a tech-driven revolution as the impact of Autonomous Vehicles (AV) on
+                        Technology and Sensors paves the way for a transportation renaissance. Cutting-edge sensor
+                        technologies like LiDAR, radar, and cameras empower AVs with the ability to perceive their
+                        surroundings in astonishing detail, making split-second decisions to ensure safety and
+                        efficiency on the roads. With computer vision algorithms at the helm, these smart machines can
+                        recognize and analyze traffic patterns, pedestrian movement, and potential hazards, elevating
+                        the driving experience to new heights of precision and accuracy. Embracing AV's sensor-powered
+                        future promises not only safer and smoother journeys but also fuels the advancement of smart
+                        city infrastructures and real-time data-driven innovations, ushering in an era where technology
+                        and transportation harmoniously coalesce for a brighter, autonomous tomorrow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+                    <h1 class="h1">FUTURE OF AV</h1>
+                    <p class="f">
+                        Fasten your seatbelts for the thrilling ride into the future of Autonomous Vehicles (AV). As
+                        technological advancements propel AVs towards Level 5 autonomy, the once-fantastical concept of
+                        self-driving cars becomes an everyday reality. Picture a world where commuting is a breeze, as
+                        AVs navigate bustling city streets flawlessly, orchestrating a symphony of interconnected smart
+                        vehicles that communicate seamlessly with each other and city infrastructures. With safety at
+                        the core, accidents are drastically reduced, and traffic congestion becomes a thing of the past.
+                        The future of AV heralds a paradigm shift in transportation, offering unparalleled convenience,
+                        sustainability, and accessibility, transforming our cities and redefining mobility as we know
+                        it. So buckle up, for the future of AV is an awe-inspiring journey into an autonomous utopia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

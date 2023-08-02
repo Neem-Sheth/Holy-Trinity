@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home-HTT</title>
+    <link rel="icon" href="logo.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Borel">,
+    <script src="https://cdn.jsdelivr.net/particles.js/1.0.3/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0px;
+        cursor: default;
+        background-color: black;
+        font-family: 'Mulish';
+    }
+
+    /* Particle Animations */
+    #particles-js {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    @keyframes dance {
+        0% {
+            transform: translateY(0);
+        }
+
+        25% {
+            transform: translateY(-10px);
+        }
+
+        50% {
+            transform: translateY(0);
+        }
+
+        75% {
+            transform: translateY(10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    a.c {
+        color: lightpink;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    a.c1 {
+        color: lightpink;
+        font-weight: bold;
+    }
+
+    a:hover {
+        animation: dance 1s infinite;
+    }
+
+    .unique-header {
+        background: linear-gradient(to right, lightpink, purple, midnightblue);
+        opacity: 80%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        margin-top: 0px;
+    }
+
+    .header-icon {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .header-button {
+        margin-left: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .header-button:hover {
+        background-color: midnightblue;
+        color: #6f42c1;
+    }
+
+    .menu-container {
+        display: none;
+        position: fixed;
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to right, lightpink, purple, midnightblue);
+        z-index: 9999;
+        overflow: hidden;
+    }
+
+    .menu-container ul {
+        list-style-type: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .menu-container ul li {
+        font-size: 28px;
+        color: white;
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-container ul li:last-child {
+        border-bottom: none;
+    }
+
+    .split-container {
+        display: flex;
+        height: 50vh;
+    }
+
+    .split-item {
+        flex: 1;
+        padding: 25px;
+        background-color: black;
+        opacity: 80%;
+        color: lightpink;
+        transition: flex 0.5s ease-in-out;
+        /* Smooth transition on hover */
+        cursor: pointer;
+        position: relative;
+
+    }
+
+    .split-item:hover {
+        flex: 2;
+    }
+
+    .hidden-content {
+        display: none;
+        position: absolute;
+        color: lightpink;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding: 20px;
+        opacity: 1;
+        transition: 1s ease-in-out;
+        /* Smooth transition on hover */
+    }
+
+    h2 {
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .contact {
+        padding: 3px;
+        font-size: large;
+    }
+
+    .split-item:hover .hidden-content {
+        display: block;
+        opacity: 1;
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: purple;
+        border-radius: 6px;
+    }
+
+    /* Holy Trinity Present... */
+    #waviy {
+        position: relative;
+    }
+
+    #waviy span {
+        position: relative;
+        display: inline-block;
+        /* text-transform: uppercase; */
+        font-family: "Montserrat Medium";
+        animation: flip 2s infinite;
+        animation-delay: calc(.2s * var(--i))
+    }
+
+    @keyframes flip {
+
+        0%,
+        80% {
+            transform: rotateY(360deg)
+        }
+    }
+
+    /* Title Heading */
+    .company {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        z-index: 9998;
+        /* Adjust the width to your preference */
+        text-align: center;
+        color: #fff;
+    }
+
+    .icon-container {
+        position: relative;
+        float: left;
+        height: 60px;
+        margin-left: 50px;
+    }
+
+    .icon-container .hidden-image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+
+    .icon-container:hover .hidden-image {
+        display: block;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+        z-index: 1;
+    }
+
+    .hidden-image {
+        position: absolute;
+        display: none;
+    }
+
+    .hidden-image img {
+        height: 60px;
+        width: 60px;
+        border: 2px solid #333;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .techbox {
+        display: flex;
+        margin: 20px;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: linear-gradient(to right, lightcoral, purple, midnightblue);
+        border-radius: 20px 20px 20px 20px;
+        box-shadow: 4px 4px 8px rgba(225, 0, 128, 0.8);
+    }
+
+    .techbox img {
+        height: 500px;
+        width: 60%;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    .techinfo {
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        font-family: Mulish;
+        padding: auto;
+        width: 40%;
+        padding: 0 10px 0 10px;
+    }
+
+    .techhead{
+        font-size: 60px;
+        color: white;
+        text-align: center;
+        font-family: Mulish;
+        font-weight: 500;
+    }
+</style>
+
+<body>
+    <div id="particles-js"></div>
+
+    <header class="unique-header">
+        <div class="header-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="icon-container">
+            <div class="icon">
+                <img src="logo.png" alt="Icon">
+            </div>
+            <div class="hidden-image" id="hiddenImage">
+                <img src="group.jpg" alt="Hidden Image">
+            </div>
+        </div>
+        <span class="text-2xl flex items-center mx-3 font-bold text-white">HOLY TRINITY</span>
+        <button class="header-button" onclick="goToExpPage()">TEST TIME</button>
+    </header>
+    <div class="menu-container" id="menuContainer">
+        <ul>
+            <li><a href="home_page.html"><b>Home</b></a></li>
+            <li><a href="about_page.html"><b>About</b></a></li>
+            <li><a href="xr_page.html">Extended Reality</a></li>
+            <li><a href="qc_page.html">Quantum Computing</a></li>
+            <li><a href="iot_page.html">Internet Of Things</a></li>
+            <li><a href="av_page.html">Autonomous Vehicles</a></li>
+            <li><a href="ai_page.html">Artificial Intelligence</a></li>
+          
+        </ul>
+    </div>
+
+    <div class="company">
+        <h1>
+            <a href="" class="typewrite" data-period="2000" data-type='["Welcome To Techno-Crazy World!"]'>
+                <span class="wrap" id="heading"></span>
+            </a>
+        </h1>
+
+        <h2 class="text-[40px] text-white font-bold italic pt-4 mt-8">The
+            <span id="waviy" class="text-pink-400 font-semibold ">
+                <span style="--i:1">Holy</span>
+                <span style="--i:2">Trinity</span>
+            </span>Presents to You, the Past, Present and Future of Technology...
+        </h2>
+    </div>
+
+
+    <div class="techbox" style="margin-top: 50vw;">
+        <img src="https://www.digitalengineering247.com/images/article/theorem_extended_reality_0722article.jpg">
+        <div class="techinfo">
+            <span class="techhead">Extended Reality</span><br>
+            "Step into the realm of mind-bending magic: Extended Reality, where the line between the virtual and real
+            world blurs into a dance of delightful possibilities!"
+        </div>
+    </div>
+
+    <div class="techbox">
+        <div class="techinfo">
+            <span class="techhead">Quantum Computing</span><br>
+            "Get ready to surf the cosmic web like a quantum cat with the mind-bogglingly fast and fabulous Quantum
+            Internet – where sci-fi meets reality!"
+        </div> 
+        <img src="https://images.newscientist.com/wp-content/uploads/2020/02/12140105/kc0wc6_web.jpg">
+    </div>
+
+    <div class="techbox">
+        <img
+            src="https://www.einfochips.com/blog/wp-content/uploads/2023/01/Wireless-and-RF-The-Real-things-in-Internet-Of-Things-Solutions-Blog_Featured_Image-scaled.jpg">
+        <div class="techinfo">
+            <span class="techhead">Internet Of Things</span><br>
+            "Welcome to the wacky world of Internet of Things, where your toaster talks to your fridge, and your pet
+            paws its way into the digital revolution!"
+        </div>
+    </div> 
+
+    <div class="techbox">
+        <div class="techinfo">
+            <span class="techhead">Autonomous vehicles</span><br>
+            "Buckle up for the ride of the future: Autonomous vehicles, where cars finally learn to drive themselves,
+            and traffic jams feel a little less like a circus!"
+        </div>
+        <img src="https://www.analyticsinsight.net/wp-content/uploads/2020/08/Self-driving-Cars.jpg">
+    </div>
+
+    <div class="techbox">
+        <img src="https://mycvcreator.com/administrator/postimages/64a7c4a7005ed1.20845803.jpg">
+        <div class="techinfo">
+            <span class="techhead">Artificial Intelligence</span><br>
+            "Prepare to meet your new robot overlords: Artificial Intelligence, the brainy bunch of algorithms that are one IQ point away from acing humanity's final exam!"
+        </div>
+    </div>
+
+
+    <div class="split-container">
+        <div class="split-item" id="section1"> 
+            <h2>CONTACT US</h2>
+            <div class="contact"><a class="c" href="https://mail.google.com/">info@holytrinitytechnology.com></a></div>
+            <div class="contact"><a class="c" href="https://www.instagram.com/">Instagram/@holytrinity</a></div>
+            <div class="contact"><a class="c" href="https://www.google.com/maps">820241 SVNIT Campus Hostels</a></div>
+        </div>
+        <div class="split-item" id="section2">
+            <h2>PRIVACY POLICY</h2>
+            <p>Thank you for visiting Holy Trinity Technology. We are committed to safeguarding and protecting your
+                personal information.</p>
+            <p>At Holy Trinity Technology, we value your privacy.
+                We only collect essential data to improve your experience on our website.
+                We don't share your information with others for marketing purposes.
+                Your data is protected, and you can opt-out anytime.
+                For more details, read our full Privacy Policy.</p>
+            <p>If you have any questions or concerns about your privacy or this policy, please contact us at <a
+                    class="c1" href="https://mail.google.com/">contact@holytrinitytechnology.com</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/1.34.0/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        //Navigation Bar
+        let menuOpen = false; 
+
+        function toggleMenu() {
+            const menuContainer = document.getElementById("menuContainer");
+            menuOpen = !menuOpen;
+            menuContainer.style.display = menuOpen ? "block" : "none";
+        }
+
+        function goToExpPage() {
+            window.location.href = "test_time_page.html";
+        }
+
+        //Typing Effect 
+        var TxtType = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 150 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS for Typing Effect
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff ; font: 500 normal 4.5em 'tahoma'; text-shadow: 5px 2px #422324, 2px 4px #422324, 3px 5px #422324; color: white;  text-align: center;}";
+            document.body.appendChild(css);
+        };
+
+        //Particle Animations
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 875
+                    }
+                },
+                color: {
+                    value: "#FFFFFF"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 1,
+                        color: "#191970"
+                    },
+                    polygon: {
+                        nb_sides: 4
+                    },
+                },
+                opacity: {
+                    value: 0.9,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 0.3,
+                        opacity_min: 0.3,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable_auto: true,
+                    distance: 100,
+                    color: "#800080",
+                    opacity: 0.8,
+                    width: 2,
+                    condensed_mode: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 600
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 700,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 800,
+                        size: 80,
+                        duration: 2,
+                        opacity: 0.9,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 100
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+    </script>
+</body>
+
+</html>

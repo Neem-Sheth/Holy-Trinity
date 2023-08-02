@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>IOT-HTT</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+  <link rel="icon" href="logo.png" type="image/x-icon" />
+  <style>
+    body {
+      background-image: url('iot.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: 'Mulish', sans-serif;
+      background-attachment: fixed;
+    }
+
+    .cover {
+      background-color: rgba(0, 0, 139, 0.75);
+      height: fit-content;
+      width: 800px;
+      margin-top: 200px;
+      margin-left: 500px;
+      padding: 50px;
+    }
+
+    .floating-header {
+      position: fixed;
+      height: 50px;
+      vertical-align: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to right, black, purple);
+      color: #fff;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .h {
+      display: flex;
+      justify-content: space-evenly;
+
+    }
+
+    #fact {
+      opacity: 1;
+      color: white;
+    }
+
+    .f {
+      font-weight: bold;
+      opacity: 1;
+      color: white;
+      padding: 5px;
+
+    }
+
+    #show-fact {
+      opacity: 1;
+      color: white;
+      justify-items: center;
+      border: white 3px;
+      z-index: 99999;
+      font-weight: bold;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 120px;
+    }
+
+    .heading1 {
+      text-align: center;
+      margin-top: 160px;
+    }
+
+    .heading2 {
+      text-align: center;
+      margin-top: 200px;
+    }
+
+    .h1 {
+      color: white;
+      font-weight: bolder;
+      padding-bottom: 7px;
+    }
+
+    .moving-text {
+      position: fixed;
+      margin-left: 50px;
+      margin-top: 70px;
+      font-size: 60px;
+      font-weight: bolder;
+      color: #ffffff;
+      text-shadow: purple;
+      animation: moveText 8s linear infinite;
+    }
+
+    .moving-text1 {
+      position: fixed;
+      margin-left: 50px;
+      margin-top: 135px;
+      font-size: 60px;
+      font-weight: bolder;
+      color: #ffffff;
+      text-shadow: purple;
+      animation: moveText 8s linear infinite;
+    }
+
+    .moving-text2 {
+      position: fixed;
+      margin-left: 50px;
+      margin-top: 200px;
+      font-size: 60px;
+      font-weight: bolder;
+      color: #ffffff;
+      text-shadow: purple;
+      animation: moveText 8s linear infinite;
+    }
+
+    @keyframes moveText {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: purple;
+      border-radius: 6px;
+    }
+
+    @keyframes dance {
+      0% {
+        transform: translateY(0);
+      }
+
+      25% {
+        transform: translateY(-10px);
+      }
+
+      50% {
+        transform: translateY(0);
+      }
+
+      75% {
+        transform: translateY(10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    a.c {
+      color: lightpink;
+      padding: 5px;
+      font-weight: bold;
+    }
+
+    a.c1 {
+      color: lightpink;
+      font-weight: bold;
+    }
+
+    a:hover {
+      animation: dance 1s infinite;
+    }
+
+    .unique-header {
+      background: linear-gradient(to right, lightpink, purple, midnightblue);
+      opacity: 80%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      margin-top: 0px;
+    }
+
+    .header-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .header-button {
+      margin-left: auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .header-button:hover {
+      background-color: midnightblue;
+      color: #6f42c1;
+    }
+
+    .menu-container {
+      display: none;
+      position: fixed;
+      opacity: 0.8;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, lightpink, purple, midnightblue);
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .menu-container ul {
+      list-style-type: none;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .menu-container ul li {
+      font-size: 28px;
+      color: white;
+      padding: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-container ul li:last-child {
+      border-bottom: none;
+    }
+
+
+    .icon-container {
+      position: relative;
+      float: left;
+      height: 60px;
+      margin-left: 50px;
+    }
+
+    .icon-container .hidden-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+    }
+
+    .icon-container:hover .hidden-image {
+      display: block;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      z-index: 1;
+    }
+
+    .hidden-image {
+      position: absolute;
+      display: none;
+    }
+
+    .hidden-image img {
+      height: 60px;
+      width: 60px;
+      border: 2px solid #333;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    const floatingHeader = document.querySelector('.floating-header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        floatingHeader.style.display = 'block';
+      } else {
+        floatingHeader.style.display = 'none';
+      }
+    });
+
+    var Facts = ["The concept of IoT dates back to the early 1980s when a group of students at Carnegie Mellon University connected a vending machine to the internet to check its status and inventory. This ingenious idea laid the groundwork for the vast and interconnected world of IoT we know today.",
+      "With the rise of IoT, wearable technology has become increasingly popular. From smartwatches that track your fitness to smart rings that control your smart home, wearable IoT devices have revolutionized how we interact with technology and integrate it into our daily lives.",
+      "In 1990, John Romkey developed the world's first internet-connected appliance – an internet toaster. This quirky invention could be turned on and off remotely through the internet, demonstrating the potential of IoT and its application to even the most mundane objects.",
+      "IoT has transformed agriculture, leading to the rise of precision farming techniques. Farmers can now use IoT-enabled sensors to monitor soil conditions, crop health, and weather patterns, optimizing crop yields and reducing resource wastage.",
+      "IoT's impact has extended beyond our planet. In space exploration, IoT technology is used to collect data from satellites, monitor spacecraft systems, and aid in scientific research. It plays a vital role in enhancing our understanding of the universe and supporting various space missions."]
+
+    function factg() {
+      var factNumber;
+      factNumber = Math.floor(Math.random() * 5);
+      document.getElementById("fact").textContent = Facts[factNumber];
+    }
+
+    //Navigation Bar
+    let menuOpen = false;
+
+    function toggleMenu() {
+      const menuContainer = document.getElementById("menuContainer");
+      menuOpen = !menuOpen;
+      menuContainer.style.display = menuOpen ? "block" : "none";
+    }
+
+    function goToExpPage() {
+      window.location.href = "test_time_page.html";
+    }
+  </script>
+
+  <!--Header start-->
+  <header class="unique-header">
+    <div class="header-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="icon-container">
+      <div class="icon">
+        <img src="logo.png" alt="Icon">
+      </div>
+      <div class="hidden-image" id="hiddenImage">
+        <img src="group.jpg" alt="Hidden Image">   
+      </div>
+    </div>
+    <span class="text-2xl flex items-center mx-3 font-bold text-white">HOLY TRINITY</span>
+    <button class="header-button" onclick="goToExpPage()">TEST TIME</button>
+  </header>
+  <div class="menu-container" id="menuContainer">
+    <ul>
+      <li><a href="home_page.html"><b>Home</b></a></li>
+      <li><a href="about_page.html"><b>About</b></a></li>
+      <li><a href="xr_page.html">Extended Reality</a></li>
+      <li><a href="qc_page.html">Quantum Computing</a></li>
+      <li><a href="iot_page.html">Internet Of Things</a></li>
+      <li><a href="av_page.html">Autonomous Vehicles</a></li>
+      <li><a href="ai_page.html">Artificial Intelligence</a></li>
+
+    </ul>
+  </div>
+  <!--Header end-->
+  <div class="heading">
+    <h1 class="moving-text">INTERNET</h1>
+  </div>
+  <div class="heading1">
+    <h1 class="moving-text1">OF</h1>
+  </div>
+  <div class="heading2">
+    <h1 class="moving-text2">THINGS</h1>
+  </div>
+  <div class="h-screen">
+    <div class="w-2/3 max-w-lg">
+      <div class="my-8">
+        <div class="cover">
+          <p id="fact">Step into the boundless realm of interconnected possibilities with IoT,
+            where the everyday world converges into a symphony of smart devices, seamless automation, and unparalleled
+            innovation</p>
+          <br>
+          <button id="show-fact"
+            style="border: 2px solid white; background-color: transparent; color: white; padding: 10px 20px; border-radius: 5px;"
+            onclick="factg()">IoT
+            Fun Fact!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h-screen">
+    <div class="w-2/3 max-w-lg">
+      <div class="my-8">
+        <div class="cover">
+          <h1 class="h1">SMART HOUSES</h1>
+          <p class="f">Welcome to the future of living! Smart Home Devices, orchestrated by the magic of the Internet of
+            Things (IoT), transform your home into a sentient being, anticipating your needs. Lights flicker to life,
+            music follows your every step, and appliances work like master chefs.</p>
+          <p class="f">. Your home becomes an enchanted sanctuary, where convenience and luxury dance hand-in-hand.
+            Beyond its walls, your smart home extends its embrace. A virtual assistant waits at your command, while
+            security cameras and sensors keep a watchful eye. With a tap on your phone or a gentle command, you
+            orchestrate this symphony of comfort and joy.</p>
+          <p class="f"> Welcome home to a place where magic and technology waltz in delightful harmony, making your
+            dreams come alive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h-screen">
+    <div class="w-2/3 max-w-lg">
+      <div class="my-8">
+        <div class="cover">
+          <h1 class="h1">FUTURE OF IOT</h1>
+          <p class="f">Step into the dazzling frontier of the Future of IoT, where innovation and imagination weave a
+            tapestry of boundless possibilities.</p>
+          <p class="f"> In this enchanted realm, everyday objects transform into extraordinary marvels, while art
+            installations come to life, adapting to the mood of the crowd. Smart cities anticipate your desires, and
+            streets hum with vibrancy, guiding traffic with responsive intelligence.</p>
+          <p class="f"> Beyond urban wonders, venture into smart agriculture, where fields breathe with a digital
+            heartbeat, and farmers are guided by data-driven wisdom. Smart homes become magical sanctuaries, adjusting
+            ambiance and fulfilling wishes with seamless precision. Embrace this journey where dreams take shape, and
+            life is elevated by the touch of digital artistry, steering the realm with wisdom and compassion into a
+            future of interconnected wonders.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

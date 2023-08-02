@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>About Us-HTT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="logo.png" type="image/x-icon" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Mulish';
+      background-color: midnightblue;
+    }
+
+    .parallax-container {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parallax-background {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background-attachment: fixed;
+      /* Apply parallax effect */
+    }
+
+    .parallax-content {
+      position: absolute;
+      font-size: larger;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      width: 80%;
+      /* Adjust the width to your preference */
+      text-align: center;
+      color: #fff;
+    }
+
+    .split-container {
+      display: flex;
+      height: 50vh;
+    }
+
+    .split-item {
+      flex: 1;
+      padding: 25px;
+      background-color: black;
+      opacity: 80%;
+      color: lightpink;
+      transition: flex 0.5s ease-in-out;
+      /* Smooth transition on hover */
+      cursor: pointer;
+      position: relative;
+
+    }
+
+    .split-item:hover {
+      flex: 2;
+    }
+
+    .hidden-content {
+      display: none;
+      position: absolute;
+      color: lightpink;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      padding: 20px;
+      opacity: 1;
+      transition: 1s ease-in-out;
+      /* Smooth transition on hover */
+    }
+
+    h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      padding: 3px;
+      font-size: large;
+    }
+
+    .split-item:hover .hidden-content {
+      display: block;
+      opacity: 1;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: midnightblue;
+      border-radius: 6px;
+    }
+
+    @keyframes dance {
+      0% {
+        transform: translateY(0);
+      }
+
+      25% {
+        transform: translateY(-10px);
+      }
+
+      50% {
+        transform: translateY(0);
+      }
+
+      75% {
+        transform: translateY(10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    a.c {
+      color: lightpink;
+      padding: 5px;
+      font-weight: bold;
+    }
+
+    a.c1 {
+      color: lightpink;
+      font-weight: bold;
+    }
+
+    a:hover {
+      animation: dance 1s infinite;
+    }
+
+    .unique-header {
+      background: linear-gradient(to right, lightpink, purple, midnightblue);
+      opacity: 80%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      margin-top: 0px;
+    }
+
+    .header-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .header-button {
+      margin-left: auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .header-button:hover {
+      background-color: midnightblue;
+      color: #6f42c1;
+    }
+
+    .menu-container {
+      display: none;
+      position: fixed;
+      opacity: 0.8;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, lightpink, purple, midnightblue);
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .menu-container ul {
+      list-style-type: none;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .menu-container ul li {
+      font-size: 28px;
+      color: white;
+      padding: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-container ul li:last-child {
+      border-bottom: none;
+    }
+
+
+    .icon-container {
+      position: relative;
+      float: left;
+      height: 60px;
+      margin-left: 50px;
+    }
+
+    .icon-container .hidden-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+    }
+
+    .icon-container:hover .hidden-image {
+      display: block;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      z-index: 1;
+    }
+
+    .hidden-image {
+      position: absolute;
+      display: none;
+    }
+
+    .hidden-image img {
+      height: 60px;
+      width: 60px;
+      border: 2px solid #333;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parallax-container">
+    <!--Header start-->
+    <header class="unique-header">
+      <div class="header-icon" onclick="toggleMenu()">&#9776;</div>
+      <div class="icon-container">
+        <div class="icon">
+          <img src="logo.png" alt="Icon">
+        </div>
+        <div class="hidden-image" id="hiddenImage">
+          <img src="group.jpg" alt="Hidden Image">
+        </div>
+      </div>
+      <span class="text-2xl flex items-center mx-3 font-bold text-white">HOLY TRINITY</span>
+      <button class="header-button" onclick="goToExpPage()">TEST TIME</button>
+    </header>
+    <div class="menu-container" id="menuContainer">
+      <ul>
+        <li><a href="home_page.html"><b>Home</b></a></li>
+        <li><a href="about_page.html"><b>About</b></a></li>
+        <li><a href="xr_page.html">Extended Reality</a></li>
+        <li><a href="qc_page.html">Quantum Computing</a></li>
+        <li><a href="iot_page.html">Internet Of Things</a></li>
+        <li><a href="av_page.html">Autonomous Vehicles</a></li>
+        <li><a href="ai_page.html">Artificial Intelligence</a></li>
+
+      </ul>
+    </div>
+    <!--Header end-->
+    <div class="parallax-background" style="background-image: url('background.jpeg');"></div>
+
+    <div class="parallax-content">
+
+      <h1 style="font-size: 100px; font-family: 'Montserrat';">HOLY TRINITY TECHNOLOGY</h1>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax-background" style="background-image: url('background.jpeg');"></div>
+    <div class="parallax-content">
+      <h2 style="font-size: 40px; font-family: 'Montserrat'; font-weight: 500;">About Us</h2>
+      <p>Welcome to Holy Trinity Technology, where the fusion of innovation, discovery, and coolness takes center stage!
+        We are your gateway to a mesmerizing world of pivotal new technologies, curated to elevate your tech-savvy
+        journey. From cutting-edge AI breakthroughs to mind-boggling Quantum Computing, we unravel the mysteries of
+        these emerging fields, making complex concepts accessible and captivating for all.
+
+        Our mission is simple: to be your go-to source for all things tech, delivering insightful articles, interactive
+        demos, and engaging videos that showcase the boundless potential of modern science. Whether you're an avid
+        techie, a curious explorer, or a future tech pioneer, Holy Trinity Technology promises an immersive experience
+        that will leave you inspired and hungry for more.
+
+        At the heart of our endeavor lies a passion for coolness. Our design and user experience blend seamlessly to
+        create an exhilarating virtual journey, where learning meets excitement and exploration meets entertainment.
+        Prepare to embark on a thrilling adventure, where the future unfolds before your eyes, and the possibilities are
+        as limitless as your imagination.
+
+        Join us at Holy Trinity Technology, where knowledge, wonder, and coolness converge to shape a tech-powered world
+        of tomorrow. Welcome aboard the innovation express - your ticket to the future awaits!</p>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax-background" style="background-image: url('background.jpeg');"></div>
+    <div class="parallax-content">
+      <h2 style="font-size: 40px; font-family: 'Montserrat'; font-weight: 500;">WHY NEW TECH?</h2>
+      <p>Embrace the Future with new technologies that are revolutionizing our lives, work, and connections! Witness the
+        magic of the Internet of Things (IoT) as it seamlessly interconnects our devices, bringing convenience to our
+        fingertips and transforming the way we interact with technology. Experience the thrill of autonomous vehicles,
+        where driving becomes a liberating experience as they navigate the roads with precision and safety. Soar beyond
+        limits with Cloud Computing, empowering businesses to scale effortlessly and revolutionizing how data is stored
+        and accessed. The healthcare industry embraces IoT-driven wearables and AI-driven diagnostics, delivering
+        personalized care and a healthier tomorrow. In agriculture, AgTech utilizes IoT and AI to optimize farming
+        practices, from precision irrigation to real-time crop monitoring, cultivating sustainable growth. Step into a
+        world of augmented reality (AR) magic, where virtual and real intertwine, opening new dimensions of immersive
+        experiences in gaming, education, and beyond. Embrace these cutting-edge advancements as they paint a brighter
+        and more exciting future!</p>
+    </div>
+  </div>
+  <div class="split-container" style="font-family: 'Mulish';">
+    <div class="split-item" id="section1">
+      <h2>CONTACT US</h2>
+      <div class="contact"><a class="c" href="https://mail.google.com/">info@holytrinitytechnology.com></a></div>
+      <div class="contact"><a class="c" href="https://www.instagram.com/">Instagram/@holytrinity</a></div>
+      <div class="contact"><a class="c" href="https://www.google.com/maps">820241 SVNIT Campus Hostels</a></div>
+    </div>
+    <div class="split-item" id="section2" style="font-family: 'Mulish';">
+      <h2>PRIVACY POLICY</h2>
+      <p>Thank you for visiting Holy Trinity Technology. We are committed to safeguarding and protecting your
+        personal information.</p>
+      <p>At Holy Trinity Technology, we value your privacy.
+        We only collect essential data to improve your experience on our website.
+        We don't share your information with others for marketing purposes.
+        Your data is protected, and you can opt-out anytime.
+        For more details, read our full Privacy Policy.</p>
+      <p>If you have any questions or concerns about your privacy or this policy, please contact us at <a class="c1"
+          href="https://mail.google.com/">contact@holytrinitytechnology.com</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    //Navigation Bar
+    let menuOpen = false;
+
+    function toggleMenu() {
+      const menuContainer = document.getElementById("menuContainer");
+      menuOpen = !menuOpen;
+      menuContainer.style.display = menuOpen ? "block" : "none";
+    }
+
+    function goToExpPage() {
+      window.location.href = "test_time_page.html";
+    }
+  </script>
+</body>
+
+</html>
