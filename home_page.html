@@ -2,322 +2,352 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Home-HTT</title>
+    <title>XR-HTT</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
     <link rel="icon" href="logo.png" type="image/x-icon" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Borel">,
-    <script src="https://cdn.jsdelivr.net/particles.js/1.0.3/particles.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url('xr.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Mulish', sans-serif;
+            background-attachment: fixed;
+        }
+
+        .cover {
+            background-color: rgba(0, 0, 139, 0.75);
+            height: fit-content;
+            width: 800px;
+            margin-top: 200px;
+            margin-left: 500px;
+            padding: 50px;
+        }
+
+        .floating-header {
+            position: fixed;
+            height: 50px;
+            vertical-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, black, purple);
+            color: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .h {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        #fact {
+            opacity: 1;
+            color: white;
+        }
+
+        .f {
+            font-weight: bold;
+            opacity: 1;
+            color: white;
+            padding: 5px;
+
+        }
+
+        #show-fact {
+            opacity: 1;
+            color: white;
+            justify-items: center;
+            border: white 3px;
+            z-index: 99999;
+            font-weight: bold;
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .heading1 {
+            text-align: center;
+            margin-top: 160px;
+        }
+
+        .heading2 {
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        .h1 {
+            color: white;
+            font-weight: bolder;
+            padding-bottom: 7px;
+        }
+
+        .moving-text {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 70px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        .moving-text1 {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 135px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        .moving-text2 {
+            position: fixed;
+            margin-left: 50px;
+            margin-top: 200px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: purple;
+            animation: moveText 8s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: black;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: purple;
+            border-radius: 6px;
+        }
+
+        @keyframes dance {
+            0% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-10px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        a.c {
+            color: lightpink;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        a.c1 {
+            color: lightpink;
+            font-weight: bold;
+        }
+
+        a:hover {
+            animation: dance 1s infinite;
+        }
+
+        .unique-header {
+            background: linear-gradient(to right, lightpink, purple, midnightblue);
+            opacity: 80%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin-top: 0px;
+        }
+
+        .header-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .header-button {
+            margin-left: auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header-button:hover {
+            background-color: midnightblue;
+            color: #6f42c1;
+        }
+
+        .menu-container {
+            display: none;
+            position: fixed;
+            opacity: 0.8;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, lightpink, purple, midnightblue);
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .menu-container ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .menu-container ul li {
+            font-size: 28px;
+            color: white;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-container ul li:last-child {
+            border-bottom: none;
+        }
+
+
+        .icon-container {
+            position: relative;
+            float: left;
+            height: 60px;
+            margin-left: 50px;
+        }
+
+        .icon-container .hidden-image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .icon-container:hover .hidden-image {
+            display: block;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            z-index: 1;
+        }
+
+        .hidden-image {
+            position: absolute;
+            display: none;
+        }
+
+        .hidden-image img {
+            height: 60px;
+            width: 60px;
+            border: 2px solid #333;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
-<style>
-    body {
-        margin: 0;
-        padding: 0px;
-        cursor: default;
-        background-color: black;
-        font-family: 'Mulish';
-    }
-
-    /* Particle Animations */
-    #particles-js {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-
-    @keyframes dance {
-        0% {
-            transform: translateY(0);
-        }
-
-        25% {
-            transform: translateY(-10px);
-        }
-
-        50% {
-            transform: translateY(0);
-        }
-
-        75% {
-            transform: translateY(10px);
-        }
-
-        100% {
-            transform: translateY(0);
-        }
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-        display: inline-block;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    a.c {
-        color: lightpink;
-        padding: 5px;
-        font-weight: bold;
-    }
-
-    a.c1 {
-        color: lightpink;
-        font-weight: bold;
-    }
-
-    a:hover {
-        animation: dance 1s infinite;
-    }
-
-    .unique-header {
-        background: linear-gradient(to right, lightpink, purple, midnightblue);
-        opacity: 80%;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        padding: 10px 20px;
-        margin-top: 0px;
-    }
-
-    .header-icon {
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .header-button {
-        margin-left: auto;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: white;
-        background-color: transparent;
-        border: 2px solid white;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .header-button:hover {
-        background-color: midnightblue;
-        color: #6f42c1;
-    }
-
-    .menu-container {
-        display: none;
-        position: fixed;
-        opacity: 0.8;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(to right, lightpink, purple, midnightblue);
-        z-index: 9999;
-        overflow: hidden;
-    }
-
-    .menu-container ul {
-        list-style-type: none;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .menu-container ul li {
-        font-size: 28px;
-        color: white;
-        padding: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .menu-container ul li:last-child {
-        border-bottom: none;
-    }
-
-    .split-container {
-        display: flex;
-        height: 50vh;
-    }
-
-    .split-item {
-        flex: 1;
-        padding: 25px;
-        background-color: black;
-        opacity: 80%;
-        color: lightpink;
-        transition: flex 0.5s ease-in-out;
-        /* Smooth transition on hover */
-        cursor: pointer;
-        position: relative;
-
-    }
-
-    .split-item:hover {
-        flex: 2;
-    }
-
-    .hidden-content {
-        display: none;
-        position: absolute;
-        color: lightpink;
-        top: 0;
-        left: 100%;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        padding: 20px;
-        opacity: 1;
-        transition: 1s ease-in-out;
-        /* Smooth transition on hover */
-    }
-
-    h2 {
-        color: white;
-        margin-bottom: 10px;
-    }
-
-    .contact {
-        padding: 3px;
-        font-size: large;
-    }
-
-    .split-item:hover .hidden-content {
-        display: block;
-        opacity: 1;
-    }
-
-    ::-webkit-scrollbar {
-        width: 12px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: black;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: purple;
-        border-radius: 6px;
-    }
-
-    /* Holy Trinity Present... */
-    #waviy {
-        position: relative;
-    }
-
-    #waviy span {
-        position: relative;
-        display: inline-block;
-        /* text-transform: uppercase; */
-        font-family: "Montserrat Medium";
-        animation: flip 2s infinite;
-        animation-delay: calc(.2s * var(--i))
-    }
-
-    @keyframes flip {
-
-        0%,
-        80% {
-            transform: rotateY(360deg)
-        }
-    }
-
-    /* Title Heading */
-    .company {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        z-index: 9998;
-        /* Adjust the width to your preference */
-        text-align: center;
-        color: #fff;
-    }
-
-    .icon-container {
-        position: relative;
-        float: left;
-        height: 60px;
-        margin-left: 50px;
-    }
-
-    .icon-container .hidden-image {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: none;
-    }
-
-    .icon-container:hover .hidden-image {
-        display: block;
-    }
-
-    .icon {
-        width: 60px;
-        height: 60px;
-        z-index: 1;
-    }
-
-    .hidden-image {
-        position: absolute;
-        display: none;
-    }
-
-    .hidden-image img {
-        height: 60px;
-        width: 60px;
-        border: 2px solid #333;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    }
-
-
-    .techbox {
-        display: flex;
-        margin: 20px;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        background: linear-gradient(to right, lightcoral, purple, midnightblue);
-        border-radius: 20px 20px 20px 20px;
-        box-shadow: 4px 4px 8px rgba(225, 0, 128, 0.8);
-    }
-
-    .techbox img {
-        height: 500px;
-        width: 60%;
-        border-radius: 20px 20px 20px 20px;
-    }
-
-    .techinfo {
-        font-size: 25px;
-        color: white;
-        text-align: center;
-        font-family: Mulish;
-        padding: auto;
-        width: 40%;
-        padding: 0 10px 0 10px;
-    }
-
-    .techhead{
-        font-size: 60px;
-        color: white;
-        text-align: center;
-        font-family: Mulish;
-        font-weight: 500;
-    }
-</style>
 
 <body>
-    <div id="particles-js"></div>
+    <script>const floatingHeader = document.querySelector('.floating-header');
 
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                floatingHeader.style.display = 'block';
+            } else {
+                floatingHeader.style.display = 'none';
+            }
+        }); 
+
+
+        var Facts = ["Blurring the Lines: XR technology blurs the lines between the virtual world and the real world. With augmented reality, digital objects are overlaid on the real environment, while virtual reality completely immerses users in a simulated world. Mixed reality combines elements of both, allowing digital objects to interact with the real world in real-time.",
+
+            "Gaming and Entertainment: XR technology has revolutionized the gaming and entertainment industry. Virtual reality games and experiences offer a heightened sense of presence and engagement, while augmented reality games like Pokemon GO have brought gaming into the real world, encouraging players to explore their surroundings.",
+
+            "Training and Education: XR is transforming the way we learn and train. From flight simulations for pilots to medical training for surgeons, XR enables immersive and realistic experiences that can help learners gain practical skills in a safe and controlled environment.",
+
+            "Virtual Tourism: XR allows people to virtually explore distant places and historical sites. Virtual tourism experiences enable users to visit iconic landmarks, ancient ruins, and natural wonders from the comfort of their homes, making travel accessible to a broader audience.",
+
+            "Social Interaction: XR technology is reshaping social interaction. Virtual reality social platforms enable users to meet and interact with others from all around the world in virtual spaces, creating new and unique ways to connect and collaborate."]
+        function factg() {
+            var factNumber;
+            factNumber = Math.floor(Math.random() * 5);
+            document.getElementById("fact").textContent = Facts[factNumber];
+        }
+
+        //Navigation Bar
+        let menuOpen = false;
+
+        function toggleMenu() {
+            const menuContainer = document.getElementById("menuContainer");
+            menuOpen = !menuOpen;
+            menuContainer.style.display = menuOpen ? "block" : "none";
+        }
+
+        function goToExpPage() {
+            window.location.href = "test_time_page.html";
+        }
+
+    </script>
+    <!-- <header class="floating-header">
+  <div class = "h">
+  <h1>HOME</h1><br>
+  <h1>SMART HOME DEVICES</h1><br>
+  <h1>FUTURE</h1>
+  </div>
+</header>-->
+    <!--Header start-->
     <header class="unique-header">
         <div class="header-icon" onclick="toggleMenu()">&#9776;</div>
-        <div class="icon-container">
+        <div class="icon-container"> 
             <div class="icon">
                 <img src="logo.png" alt="Icon">
             </div>
@@ -331,286 +361,81 @@
     <div class="menu-container" id="menuContainer">
         <ul>
             <li><a href="home_page.html"><b>Home</b></a></li>
-            <li><a href="about_page.html"><b>About</b></a></li>
+            <li><a href="about_pa   ge.html"><b>About</b></a></li>
             <li><a href="xr_page.html">Extended Reality</a></li>
             <li><a href="qc_page.html">Quantum Computing</a></li>
             <li><a href="iot_page.html">Internet Of Things</a></li>
             <li><a href="av_page.html">Autonomous Vehicles</a></li>
             <li><a href="ai_page.html">Artificial Intelligence</a></li>
-          
+
         </ul>
     </div>
-
-    <div class="company">
-        <h1>
-            <a href="" class="typewrite" data-period="2000" data-type='["Welcome To Techno-Crazy World!"]'>
-                <span class="wrap" id="heading"></span>
-            </a>
-        </h1>
-
-        <h2 class="text-[40px] text-white font-bold italic pt-4 mt-8">The
-            <span id="waviy" class="text-pink-400 font-semibold ">
-                <span style="--i:1">Holy</span>
-                <span style="--i:2">Trinity</span>
-            </span>Presents to You, the Past, Present and Future of Technology...
-        </h2>
+    <!--Header end-->
+    <div class="heading">
+        <h1 class="moving-text">EXTENDED</h1>
     </div>
+    <div class="heading1">
+        <h1 class="moving-text1">REALITY</h1>
+    </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
 
-
-    <div class="techbox" style="margin-top: 50vw;">
-        <img src="https://www.digitalengineering247.com/images/article/theorem_extended_reality_0722article.jpg">
-        <div class="techinfo">
-            <span class="techhead">Extended Reality</span><br>
-            "Step into the realm of mind-bending magic: Extended Reality, where the line between the virtual and real
-            world blurs into a dance of delightful possibilities!"
+                    <p id="fact">As XR technology continues to advance, we can expect even more exciting and innovative
+                        applications in various industries, enriching our lives and changing the way we perceive and
+                        interact with the world around us.</p>
+                    <br>
+                    <button id="show-fact"
+                        style="border: 2px solid white; background-color: transparent; color: white; padding: 10px 20px; border-radius: 5px;"
+                        onclick="factg()"> FuXRn Fact!</button>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="techbox">
-        <div class="techinfo">
-            <span class="techhead">Quantum Computing</span><br>
-            "Get ready to surf the cosmic web like a quantum cat with the mind-bogglingly fast and fabulous Quantum
-            Internet – where sci-fi meets reality!"
-        </div> 
-        <img src="https://images.newscientist.com/wp-content/uploads/2020/02/12140105/kc0wc6_web.jpg">
-    </div>
-
-    <div class="techbox">
-        <img
-            src="https://www.einfochips.com/blog/wp-content/uploads/2023/01/Wireless-and-RF-The-Real-things-in-Internet-Of-Things-Solutions-Blog_Featured_Image-scaled.jpg">
-        <div class="techinfo">
-            <span class="techhead">Internet Of Things</span><br>
-            "Welcome to the wacky world of Internet of Things, where your toaster talks to your fridge, and your pet
-            paws its way into the digital revolution!"
-        </div>
-    </div> 
-
-    <div class="techbox">
-        <div class="techinfo">
-            <span class="techhead">Autonomous vehicles</span><br>
-            "Buckle up for the ride of the future: Autonomous vehicles, where cars finally learn to drive themselves,
-            and traffic jams feel a little less like a circus!"
-        </div>
-        <img src="https://www.analyticsinsight.net/wp-content/uploads/2020/08/Self-driving-Cars.jpg">
-    </div>
-
-    <div class="techbox">
-        <img src="https://mycvcreator.com/administrator/postimages/64a7c4a7005ed1.20845803.jpg">
-        <div class="techinfo">
-            <span class="techhead">Artificial Intelligence</span><br>
-            "Prepare to meet your new robot overlords: Artificial Intelligence, the brainy bunch of algorithms that are one IQ point away from acing humanity's final exam!"
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+                    <h1 class="h1">XR IN HEALTHCARE</h1>
+                    <p class="f">Extended Reality (XR) is revolutionizing healthcare by enhancing surgical training and
+                        improving patient care. Surgeons use realistic virtual environments to practice complex
+                        procedures, reducing errors and improving outcomes. XR also aids in pain management by immersing
+                        patients in calming virtual experiences during medical procedures, reducing anxiety and
+                        discomfort.</p>
+                    <p class="f">XR is transforming healthcare through telemedicine, enabling immersive virtual
+                        consultations for improved patient access. Medical education benefits from XR's interactive
+                        anatomy lessons, allowing students to explore virtual 3D models of the human body, enhancing
+                        understanding and retention. The future holds even more potential for XR to positively impact
+                        patient care and medical training.</p>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="h-screen">
+        <div class="w-2/3 max-w-lg">
+            <div class="my-8">
+                <div class="cover">
+                    <h1 class="h1">FUTURE OF XR</h1>
+                    <p class="f">The future of XR holds vast potential, revolutionizing entertainment with more
+                        immersive VR experiences and transforming education through interactive learning. In healthcare,
+                        XR will continue to improve patient outcomes with surgical simulations. The convergence of XR
+                        with AI and IoT will lead to the creation of a shared virtual space called the "Metaverse,"
+                        redefining how we collaborate and interact.</p>
+                    <p class="f"> XR's future includes enhanced remote collaboration, social interactions in lifelike
+                        virtual spaces, and revolutionary e-commerce experiences. As XR becomes more accessible, it will
+                        integrate into daily life, reshaping entertainment, education, work, and commerce in ways
+                        previously unimaginable.</p>
+                    <p class="f"> Beyond urban wonders, venture into smart agriculture, where fields breathe with a
+                        digital heartbeat, and farmers are guided by data-driven wisdom. Smart homes become magical
+                        sanctuaries, adjusting ambiance and fulfilling wishes with seamless precision. Embrace this
+                        journey where dreams take shape, and life is elevated by the touch of digital artistry, steering
+                        the realm with wisdom and compassion into a future of interconnected wonders.</p>
 
-
-    <div class="split-container">
-        <div class="split-item" id="section1"> 
-            <h2>CONTACT US</h2>
-            <div class="contact"><a class="c" href="https://mail.google.com/">info@holytrinitytechnology.com></a></div>
-            <div class="contact"><a class="c" href="https://www.instagram.com/">Instagram/@holytrinity</a></div>
-            <div class="contact"><a class="c" href="https://www.google.com/maps">820241 SVNIT Campus Hostels</a></div>
-        </div>
-        <div class="split-item" id="section2">
-            <h2>PRIVACY POLICY</h2>
-            <p>Thank you for visiting Holy Trinity Technology. We are committed to safeguarding and protecting your
-                personal information.</p>
-            <p>At Holy Trinity Technology, we value your privacy.
-                We only collect essential data to improve your experience on our website.
-                We don't share your information with others for marketing purposes.
-                Your data is protected, and you can opt-out anytime.
-                For more details, read our full Privacy Policy.</p>
-            <p>If you have any questions or concerns about your privacy or this policy, please contact us at <a
-                    class="c1" href="https://mail.google.com/">contact@holytrinitytechnology.com</a>
-            </p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/1.34.0/tsparticles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        //Navigation Bar
-        let menuOpen = false; 
-
-        function toggleMenu() {
-            const menuContainer = document.getElementById("menuContainer");
-            menuOpen = !menuOpen;
-            menuContainer.style.display = menuOpen ? "block" : "none";
-        }
-
-        function goToExpPage() {
-            window.location.href = "test_time_page.html";
-        }
-
-        //Typing Effect 
-        var TxtType = function (el, toRotate, period) {
-            this.toRotate = toRotate;
-            this.el = el;
-            this.loopNum = 0;
-            this.period = parseInt(period, 10) || 2000;
-            this.txt = '';
-            this.tick();
-            this.isDeleting = false;
-        };
-
-        TxtType.prototype.tick = function () {
-            var i = this.loopNum % this.toRotate.length;
-            var fullTxt = this.toRotate[i];
-
-            if (this.isDeleting) {
-                this.txt = fullTxt.substring(0, this.txt.length - 1);
-            } else {
-                this.txt = fullTxt.substring(0, this.txt.length + 1);
-            }
-
-            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-            var that = this;
-            var delta = 150 - Math.random() * 100;
-
-            if (this.isDeleting) { delta /= 2; }
-
-            if (!this.isDeleting && this.txt === fullTxt) {
-                delta = this.period;
-                this.isDeleting = true;
-            } else if (this.isDeleting && this.txt === '') {
-                this.isDeleting = false;
-                this.loopNum++;
-                delta = 500;
-            }
-
-            setTimeout(function () {
-                that.tick();
-            }, delta);
-        };
-
-        window.onload = function () {
-            var elements = document.getElementsByClassName('typewrite');
-            for (var i = 0; i < elements.length; i++) {
-                var toRotate = elements[i].getAttribute('data-type');
-                var period = elements[i].getAttribute('data-period');
-                if (toRotate) {
-                    new TxtType(elements[i], JSON.parse(toRotate), period);
-                }
-            }
-            // INJECT CSS for Typing Effect
-            var css = document.createElement("style");
-            css.type = "text/css";
-            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff ; font: 500 normal 4.5em 'tahoma'; text-shadow: 5px 2px #422324, 2px 4px #422324, 3px 5px #422324; color: white;  text-align: center;}";
-            document.body.appendChild(css);
-        };
-
-        //Particle Animations
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 100,
-                    density: {
-                        enable: true,
-                        value_area: 875
-                    }
-                },
-                color: {
-                    value: "#FFFFFF"
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 1,
-                        color: "#191970"
-                    },
-                    polygon: {
-                        nb_sides: 4
-                    },
-                },
-                opacity: {
-                    value: 0.9,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 0.3,
-                        opacity_min: 0.3,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 5,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable_auto: true,
-                    distance: 100,
-                    color: "#800080",
-                    opacity: 0.8,
-                    width: 2,
-                    condensed_mode: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 600
-                    }
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 700,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 800,
-                        size: 80,
-                        duration: 2,
-                        opacity: 0.9,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 100
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        });
-
-    </script>
 </body>
 
 </html>
