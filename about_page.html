@@ -17,6 +17,27 @@
       background-color: midnightblue;
     }
 
+    .par {
+      margin: 20px;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      font-family: 'Mulish';
+      opacity: 0.6;
+      padding: 10px;
+      font-size: 20px;
+      background-image: linear-gradient(to right, aqua midnightblue);
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 4px 4px 8px rgba(0, 128, 255, 0.8);
+    }
+
+    .holy{
+      background-image: linear-gradient(to right, aqua midnightblue);
+      opacity: 0.8;
+      color: white;
+      border-radius: 20px;
+    }
+
     .parallax-container {
       height: 100vh;
       position: relative;
@@ -27,6 +48,7 @@
       height: 100%;
       background-size: cover;
       background-position: center;
+      background-image: url('background.jpeg');
       position: absolute;
       top: 0;
       left: 0;
@@ -39,7 +61,7 @@
 
     .parallax-content {
       position: absolute;
-      font-size: larger;
+      /* font-size: larger; */
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -161,12 +183,15 @@
 
     .unique-header {
       background: linear-gradient(to right, lightpink, purple, midnightblue);
-      opacity: 80%;
+      opacity: 100%;
       height: 60px;
       display: flex;
       align-items: center;
       padding: 10px 20px;
       margin-top: 0px;
+      position: fixed;
+      width: 100%;
+      z-index: 9999;
     }
 
     .header-icon {
@@ -293,18 +318,18 @@
       </ul>
     </div>
     <!--Header end-->
-    <div class="parallax-background" style="background-image: url('background.jpeg');"></div>
+    <div class="parallax-background"></div>
 
     <div class="parallax-content">
-
-      <h1 style="font-size: 100px; font-family: 'Montserrat';">HOLY TRINITY TECHNOLOGY</h1>
+      <h1 style="font-size: 100px; font-family: 'Montserrat'; background-image: linear-gradient(to right, rgb(0, 128, 255), midnightblue)" class="holy">HOLY TRINITY TECHNOLOGY</h1>
     </div>
   </div>
   <div class="parallax-container">
-    <div class="parallax-background" style="background-image: url('background.jpeg');"></div>
+    <div class="parallax-background"></div>
     <div class="parallax-content">
-      <h2 style="font-size: 40px; font-family: 'Montserrat'; font-weight: 500;">About Us</h2>
-      <p>Welcome to Holy Trinity Technology, where the fusion of innovation, discovery, and coolness takes center stage!
+      <h2 style="font-size: 40px; font-family: 'Montserrat'; font-weight: 500;">ABOUT US</h2>
+      <p class="par">Welcome to Holy Trinity Technology, where the fusion of innovation, discovery, and coolness takes
+        center stage!
         We are your gateway to a mesmerizing world of pivotal new technologies, curated to elevate your tech-savvy
         journey. From cutting-edge AI breakthroughs to mind-boggling Quantum Computing, we unravel the mysteries of
         these emerging fields, making complex concepts accessible and captivating for all.
@@ -324,10 +349,11 @@
     </div>
   </div>
   <div class="parallax-container">
-    <div class="parallax-background" style="background-image: url('background.jpeg');"></div>
+    <div class="parallax-background"></div>
     <div class="parallax-content">
       <h2 style="font-size: 40px; font-family: 'Montserrat'; font-weight: 500;">WHY NEW TECH?</h2>
-      <p>Embrace the Future with new technologies that are revolutionizing our lives, work, and connections! Witness the
+      <p class="par">Embrace the Future with new technologies that are revolutionizing our lives, work, and connections!
+        Witness the
         magic of the Internet of Things (IoT) as it seamlessly interconnects our devices, bringing convenience to our
         fingertips and transforming the way we interact with technology. Experience the thrill of autonomous vehicles,
         where driving becomes a liberating experience as they navigate the roads with precision and safety. Soar beyond
