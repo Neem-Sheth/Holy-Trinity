@@ -4,6 +4,11 @@ Welcome to the Holy Trinity Technology Hub! 🚀
 
 This repository hosts our dynamic and interactive technology website, where we keep you updated on the latest trends and breakthroughs in the industry. We believe in the power of interactivity, ensuring that learning about AI, AV, and IoT technologies is not only informative but also engaging and fun.
 
+## Explore Our Website
+Ready to embark on a journey through the world of technology? Visit our website at [Holy Trinity Technology Hub](https://neem-sheth.github.io/New-Technology---Holy-Trinity/) and immerse yourself in the latest advancements in AI, AV, and IoT.
+
+Feel free to explore, learn, and engage with our interactive content. Happy browsing! 🌐
+
 ## Importance of Interactivity
 
 Interactivity is at the heart of our platform. We understand that passive learning can be dull, so we've integrated various interactive elements throughout our website. From quizzes that challenge your knowledge to hands-on demonstrations of cutting-edge technologies, we strive to make your learning experience as immersive as possible.
@@ -30,7 +35,3 @@ Meet the creative minds behind Holy Trinity's technology website:
 - Aayudh Panchal
 - Neem Sheth
 
-## Explore Our Website
-Ready to embark on a journey through the world of technology? Visit our website at [Holy Trinity Technology Hub](https://neem-sheth.github.io/New-Technology---Holy-Trinity/) and immerse yourself in the latest advancements in AI, AV, and IoT.
-
-Feel free to explore, learn, and engage with our interactive content. Happy browsing! 🌐
